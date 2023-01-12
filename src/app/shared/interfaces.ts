@@ -1,4 +1,4 @@
 export interface TrainOutput {
-  positove?: number;
+  positive?: number;
   negative?: number;
 }

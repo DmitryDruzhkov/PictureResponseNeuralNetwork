@@ -1,0 +1,16 @@
+<div class="content">
+  <canvas #canv></canvas>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="chousenNumber">
+    <mat-radio-button class="example-radio-button" *ngFor="let number of numbers" [value]="number.key">
+      {{number.value}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="buttons">
+    <button (click)="onClear()" mat-raised-button color="primary">Clear</button>
+    <button (click)="onTrain()" mat-raised-button color="primary">Train</button>
+    <button (click)="onResponce()" mat-raised-button color="primary">Responce</button>
+  </div>
+</div>
