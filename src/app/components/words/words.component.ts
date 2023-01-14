@@ -1,8 +1,9 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatRadioModule } from '@angular/material';
 import { CanvasService } from 'src/app/services/canvas.service';
 import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
 const brain = require('brain.js');
 
 @Component({

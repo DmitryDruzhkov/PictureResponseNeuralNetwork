@@ -1,6 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { TrainOutput } from './shared/interfaces';
-const brain = require("brain.js");
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +6,18 @@ const brain = require("brain.js");
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public links = [
+    {
+      title: 'Smile',
+      link: 'smile'
+    },
+    {
+      title: 'Numbers',
+      link: 'numbers'
+    },
+    {
+      title: 'Words',
+      link: 'words'
+    },
+  ]
 }

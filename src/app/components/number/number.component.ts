@@ -1,12 +1,10 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  MatButtonModule,
-  MatNativeDateModule,
-  MatRadioModule,
-} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CanvasService } from 'src/app/services/canvas.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
 const brain = require('brain.js');
 
 @Component({

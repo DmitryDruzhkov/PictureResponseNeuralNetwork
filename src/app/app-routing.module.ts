@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: SmileComponent,
   },
   {
-    path: 'number',
+    path: 'numbers',
     component: NumberComponent,
   },
   {

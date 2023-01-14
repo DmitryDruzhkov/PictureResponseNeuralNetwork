@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { CanvasService } from 'src/app/services/canvas.service';
 import { TrainOutput } from '../../shared/interfaces';
 const brain = require("brain.js");
