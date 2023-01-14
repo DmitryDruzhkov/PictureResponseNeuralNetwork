@@ -1,56 +1,21 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  MatButtonModule,
-  MatNativeDateModule,
-  MatRadioModule,
-} from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatRadioModule } from '@angular/material';
 import { CanvasService } from 'src/app/services/canvas.service';
+import { FormsModule } from '@angular/forms';
 const brain = require('brain.js');
 
 @Component({
-  selector: 'app-number',
+  selector: 'app-words',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './number.component.html',
-  styleUrls: ['./number.component.scss'],
+  imports: [CommonModule, FormsModule, MatRadioModule, MatButtonModule],
+  templateUrl: './words.component.html',
+  styleUrls: ['./words.component.scss'],
 })
-export class NumberComponent {
-  public numbers: { key: string; value: number }[] = [
-    { key: 'Zero', value: 0 },
-    { key: 'One', value: 1 },
-    { key: 'Two', value: 2 },
-    { key: 'Three', value: 3 },
-    { key: 'Four', value: 4 },
-    { key: 'Five', value: 5 },
-    { key: 'Six', value: 6 },
-    { key: 'Seven', value: 7 },
-    { key: 'Eight', value: 8 },
-    { key: 'Nine', value: 9 },
-  ];
+export class WordsComponent {
+  public words: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'q'];
 
-  private output = {
-    Zero: 0,
-    One: 0,
-    Two: 0,
-    Three: 0,
-    Four: 0,
-    Five: 0,
-    Six: 0,
-    Seven: 0,
-    Eight: 0,
-    Nine: 0,
-  };
-
-  public chousenNumber!: number;
+  public chousenWord!: string;
 
   @ViewChild('canv') canv!: ElementRef<HTMLCanvasElement>;
 
@@ -82,12 +47,15 @@ export class NumberComponent {
   public onTrain(): void {
     const vector: any[] = this.canvasService.calculate(true);
 
-    const locOutput = { ...this.output };
-    (locOutput as any)[this.chousenNumber] = 1;
+    const output = {};
+
+    this.words.forEach((word: string) => {
+      (output as any)[word] = word === this.chousenWord ? 1 : 0;
+    })
 
     this.train_data.push({
       input: vector,
-      output: locOutput,
+      output
     });
 
     console.log(this.train_data);
